@@ -1,13 +1,8 @@
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
-
   :root {
-    --common-element-size: 16px;
-    --content-width: calc(var(--common-element-size) * 45);
-    --sidebar-width: calc(var(--common-element-size) * 10);
-    --sidebar-left-margin: calc(50vw - (var(--content-width) / 2) - var(--sidebar-width) - (var(--common-element-size) * 2));
-    --font-main: "Inter", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", system-ui, sans-serif;
-    --font-secondary: "Inter", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", system-ui, sans-serif;
+    --width: 980px;
+    --font-main: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+    --font-secondary: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
     --heading-color: #111;
     --text-color: #222;
     --link-color: #111;
@@ -26,19 +21,36 @@
   }
 
   body {
-    color: var(--text-color);
-    font-family: var(--font-secondary);
-    font-size: var(--common-element-size);
-    line-height: calc(1em + var(--common-element-size));
-    max-width: var(--content-width);
-    padding: 0 calc(var(--common-element-size) * 2);
-    margin: calc(var(--common-element-size) * 2) auto;
-    background-color: var(--background-color);
+    display: grid;
+    grid-template-columns: 122px minmax(0, 1fr);
+    grid-template-areas:
+      "header main"
+      ". footer";
+    column-gap: 58px;
+    row-gap: 18px;
+    max-width: var(--width);
+    padding: 56px 24px 30px;
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  header {
+    grid-area: header;
+    align-self: start;
+    position: sticky;
+    top: 36px;
+  }
+
+  main {
+    grid-area: main;
+    max-width: 690px;
   }
 
   footer {
-    margin-top: 8px;
-    padding: 10px 0 4px;
+    grid-area: footer;
+    max-width: 690px;
+    margin-top: 6px;
+    padding: 8px 0 4px;
     border-top: 1px solid #ddd;
     text-align: center;
     font-size: 0.8rem;
@@ -53,42 +65,36 @@
   .side-nav {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 8px;
   }
 
   .side-nav a {
     margin-right: 0;
-    padding: 0.12em 0;
     font-size: 1rem;
     color: #111;
-    border-bottom: none;
-    text-decoration: none;
   }
 
   .side-nav a:hover {
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   h1 {
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 2.65rem;
-    font-weight: 800;
-    line-height: 1.18;
+    margin-bottom: 12px;
+    font-size: 2.08rem;
   }
 
   p {
-    margin: 0 0 12px;
+    margin: 0 0 14px;
   }
 
   hr {
-    margin: 14px 0 12px;
+    margin: 20px 0 14px;
     border-top: 1px solid #ddd;
   }
 
   main a {
-    border-bottom: 2px solid #111;
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   ul.home-posts {
@@ -100,13 +106,13 @@
   ul.home-posts li {
     display: flex;
     align-items: baseline;
-    gap: 12px;
+    gap: 16px;
     margin-bottom: 6px;
   }
 
   ul.home-posts time {
-    width: 128px;
-    flex: 0 0 128px;
+    width: 94px;
+    flex: 0 0 94px;
     font-size: 0.92rem;
     color: #333;
     font-family: "SFMono-Regular", Menlo, Consolas, monospace;
@@ -117,28 +123,28 @@
     text-decoration: underline;
   }
 
-  @media (min-width: 1200px) {
-    header nav {
-      position: fixed;
-      top: calc(var(--common-element-size) * 2);
-      left: var(--sidebar-left-margin);
-      width: var(--sidebar-width);
-      height: calc(100vh - (var(--common-element-size) * 4));
-      overflow-y: auto;
-    }
-  }
-
   @media (max-width: 900px) {
     body {
+      display: block;
       max-width: 740px;
       padding: 24px 16px 20px;
       font-size: 0.98rem;
     }
 
+    header {
+      position: static;
+      margin-bottom: 16px;
+    }
+
     .side-nav {
-      flex-direction: column;
+      flex-direction: row;
       gap: 14px;
-      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    main,
+    footer {
+      max-width: 100%;
     }
   }
 </style>
