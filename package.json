@@ -1,0 +1,10 @@
+{
+  "name": "xyras-note",
+  "private": true,
+  "scripts": {
+    "build": "hugo --gc --minify"
+  },
+  "devDependencies": {
+    "hugo-bin": "^0.141.0"
+  }
+}
