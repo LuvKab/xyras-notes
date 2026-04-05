@@ -2,7 +2,8 @@
 title: "Link"
 ---
 
-- [GitHub](https://github.com/)
-- [X](https://x.com/)
-- [Telegram](https://telegram.org/)
-- [Steam](https://store.steampowered.com/)
+- [Twitter / X](https://x.com/XyrasSun)
+- [Telegram](https://t.me/Xyras_Sun)
+- [Instagram](https://instagram.com/colegulu)
+- [Steam](https://steamcommunity.com/id/botwaldo2000)
+- [GitHub](https://github.com/LuvKab)
