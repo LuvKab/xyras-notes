@@ -1,0 +1,148 @@
+<style>
+  :root {
+    --width: 980px;
+    --font-main: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+    --font-secondary: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+    --heading-color: #111;
+    --text-color: #222;
+    --link-color: #111;
+    --visited-color: #111;
+    --background-color: #fff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --heading-color: #111;
+      --text-color: #222;
+      --link-color: #111;
+      --visited-color: #111;
+      --background-color: #fff;
+    }
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    grid-template-areas:
+      "header main"
+      ". footer";
+    column-gap: 56px;
+    row-gap: 20px;
+    max-width: var(--width);
+    padding: 58px 24px 30px;
+    line-height: 1.75;
+  }
+
+  header {
+    grid-area: header;
+    align-self: start;
+    position: sticky;
+    top: 36px;
+  }
+
+  main {
+    grid-area: main;
+    max-width: 700px;
+  }
+
+  footer {
+    grid-area: footer;
+    max-width: 700px;
+    margin-top: 8px;
+    padding: 10px 0 4px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  .side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .side-nav a {
+    margin-right: 0;
+    font-size: 1rem;
+    color: #111;
+  }
+
+  .side-nav a:hover {
+    text-decoration: underline;
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 2.05rem;
+  }
+
+  p {
+    margin: 0 0 14px;
+  }
+
+  hr {
+    margin: 20px 0 14px;
+    border-top: 1px solid #ddd;
+  }
+
+  main a {
+    text-decoration: underline;
+  }
+
+  ul.home-posts {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+  }
+
+  ul.home-posts li {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+
+  ul.home-posts time {
+    width: 92px;
+    flex: 0 0 92px;
+    font-size: 0.93rem;
+    color: #333;
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+
+  ul.home-posts a {
+    color: #111;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 900px) {
+    body {
+      display: block;
+      max-width: 740px;
+      padding: 24px 16px 20px;
+    }
+
+    header {
+      position: static;
+      margin-bottom: 16px;
+    }
+
+    .side-nav {
+      flex-direction: row;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    main,
+    footer {
+      max-width: 100%;
+    }
+  }
+</style>

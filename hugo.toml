@@ -1,0 +1,31 @@
+baseURL = "https://example.org/"
+languageCode = "zh-cn"
+title = "Xyras"
+theme = "hugo-bearblog"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Xyras 的个人博客"
+  hideMadeWithLine = true
+  dateFormat = "2006-01-02"
+  mainSections = ["posts"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Blog"
+  url = "/posts/"
+  weight = 2
+
+[[menu.main]]
+  name = "Link"
+  url = "/link/"
+  weight = 3
