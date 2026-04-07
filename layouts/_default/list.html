@@ -8,6 +8,7 @@
   {{ end }}
   <ul class="blog-posts">
     {{ range .Pages }}
+    {{ $blogPath := replaceRE "^/posts/" "/blog/" .RelPermalink }}
     <li>
       <span>
         <i>
@@ -16,7 +17,7 @@
           </time>
         </i>
       </span>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <a href="{{ $blogPath }}">{{ .Title }}</a>
     </li>
     {{ else }}
     <li>

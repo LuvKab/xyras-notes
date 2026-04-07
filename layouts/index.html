@@ -1,11 +1,35 @@
 {{ define "main" }}
 <h1>{{ .Site.Title }}</h1>
 {{ .Content }}
+
+{{ $mainSections := .Site.Params.mainSections | default (slice "posts") }}
+{{ $posts := where .Site.RegularPages "Section" "in" $mainSections }}
+
 <hr>
-<p>主入口正在规划中，当前可访问：</p>
+
+<p>Recent Posts:</p>
 <ul class="home-posts">
-  <li><a href="/blog/">Blog</a></li>
-  <li><a href="/reader/">MD Reader</a></li>
-  <li><a href="/link/">Link</a></li>
+  {{ range first 6 (sort $posts "Date" "desc") }}
+  {{ $blogPath := replaceRE "^/posts/" "/blog/" .RelPermalink }}
+  <li>
+    <time datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}</time>
+    <a href="{{ $blogPath }}">{{ .Title }}</a>
+  </li>
+  {{ else }}
+  <li>还没有文章。</li>
+  {{ end }}
+</ul>
+
+<p>Random Posts:</p>
+<ul class="home-posts">
+  {{ range first 6 (shuffle $posts) }}
+  {{ $blogPath := replaceRE "^/posts/" "/blog/" .RelPermalink }}
+  <li>
+    <time datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}</time>
+    <a href="{{ $blogPath }}">{{ .Title }}</a>
+  </li>
+  {{ else }}
+  <li>还没有文章。</li>
+  {{ end }}
 </ul>
 {{ end }}

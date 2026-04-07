@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
   favicon = "images/logo-circle.png"
   hideMadeWithLine = true
   dateFormat = "2006-01-02"
-  mainSections = ["blog"]
+  mainSections = ["posts"]
 
 [markup]
   [markup.goldmark]
