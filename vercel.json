@@ -21,8 +21,18 @@
       }
     },
     {
-      "src": "^/blog/(.*)$",
-      "dest": "/posts/$1"
+      "src": "^/posts$",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/"
+      }
+    },
+    {
+      "src": "^/posts/(.*)$",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/$1"
+      }
     }
   ]
 }
